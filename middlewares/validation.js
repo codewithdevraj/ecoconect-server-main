@@ -7,6 +7,7 @@ const validateRegistration = [
     min: 8,
   }),
   check("phoneNumber", "Phone Number is required").not().isEmpty(),
+  check("phoneNumber", "Please include a valid Phone Number that must be 10 digits").matches(/^[6-9]\d{9}$/),
   check("birthDate", "Birth Date is required").not().isEmpty(),
   check("gender", "Gender is required").not().isEmpty(),
   check("address.streetAddress", "Street Address is required").not().isEmpty(),
