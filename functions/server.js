@@ -11,12 +11,13 @@ const app = express();
 // Connect to MongoDB
 connectDB();
 
-// CORS configuration
+// Body parser
 app.use(bodyParser.json());
 
+// CORS configuration
 app.use(
   cors({
-    origin: "https://ecoconect.vercel.app",
+    origin: "*",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     

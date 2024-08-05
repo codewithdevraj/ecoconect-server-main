@@ -3,11 +3,14 @@ const { check, validationResult } = require("express-validator");
 const validateRegistration = [
   check("fullName", "Full Name is required").not().isEmpty(),
   check("email", "Please include a valid email").isEmail(),
-  check("password", "Password must be 6 or more characters").isLength({
+  check("password", "Password must be 8 or more characters").isLength({
     min: 8,
   }),
   check("phoneNumber", "Phone Number is required").not().isEmpty(),
-  check("phoneNumber", "Please include a valid Phone Number that must be 10 digits").matches(/^[6-9]\d{9}$/),
+  check(
+    "phoneNumber",
+    "Please include a valid Phone Number that must be 10 digits"
+  ).matches(/^[6-9]\d{9}$/),
   check("birthDate", "Birth Date is required").not().isEmpty(),
   check("gender", "Gender is required").not().isEmpty(),
   check("address.streetAddress", "Street Address is required").not().isEmpty(),
